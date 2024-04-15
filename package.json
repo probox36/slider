@@ -23,11 +23,6 @@
   "module": "./es/index",
   "types": "./lib/index.d.ts",
   "style": "./assets/index.css",
-  "files": [
-    "assets/*.css",
-    "lib",
-    "es"
-  ],
   "scripts": {
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "rc-test --coverage",
