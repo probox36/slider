@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import cls from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
@@ -132,7 +133,7 @@ const Handle = React.forwardRef<HTMLDivElement, HandleProps>((props, ref) => {
 
   // ============================ Render ============================
   let handleNode = (
-    <div
+    <motion.div
       ref={ref}
       className={cls(
         handlePrefixCls,
@@ -161,6 +162,14 @@ const Handle = React.forwardRef<HTMLDivElement, HandleProps>((props, ref) => {
       aria-labelledby={getIndex(ariaLabelledByForHandle, valueIndex)}
       aria-valuetext={getIndex(ariaValueTextFormatterForHandle, valueIndex)?.(value)}
       aria-orientation={direction === 'ltr' || direction === 'rtl' ? 'horizontal' : 'vertical'}
+      whileTap={
+        {scale: 1.5,
+          transition: { 
+            duration: 0.07, 
+            ease: easeOut
+          }
+        }
+      }
       {...restProps}
     />
   );
